@@ -16,7 +16,7 @@ pipelines:
           - php artisan serve &
           - sleep 5
           - ./vendor/bin/phpunit
-          - wget https://forge.laravel.com/servers/321969/sites/904704/deploy/http?token=pH8l1fp88FApKsuSLRFlP1uVfyNJOR1DQdmrm4A1
+          - wget -q --spider https://forge.laravel.com/servers/321969/sites/904704/deploy/http?token=pH8l1fp88FApKsuSLRFlP1uVfyNJOR1DQdmrm4A1
         services:
           - mysql
 
