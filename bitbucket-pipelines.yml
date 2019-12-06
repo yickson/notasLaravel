@@ -4,7 +4,7 @@ pipelines:
   default:
     - step:
         script:
-          - apt-get update && apt-get install -y git curl libmcrypt-dev default-mysql-client
+          - apt-get update && apt-get install -y git curl libmcrypt-dev default-mysql-client wget
           - yes | pecl install mcrypt-1.0.1
           - docker-php-ext-install pdo_mysql
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -16,7 +16,7 @@ pipelines:
           - php artisan serve &
           - sleep 5
           - ./vendor/bin/phpunit
-          - wget "https://forge.laravel.com/servers/321969/sites/904704/deploy/http?token=pH8l1fp88FApKsuSLRFlP1uVfyNJOR1DQdmrm4A1"
+          - wget https://forge.laravel.com/servers/321969/sites/904704/deploy/http?token=pH8l1fp88FApKsuSLRFlP1uVfyNJOR1DQdmrm4A1
         services:
           - mysql
 
