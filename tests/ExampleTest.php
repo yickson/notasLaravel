@@ -30,7 +30,7 @@ class ExampleTest extends TestCase
 
         $this->visit('/')
             ->type('Task 1', 'name')
-            ->press('Add Task')
+            ->press('Agregar Tarea')
             ->see('Task 1');
     }
 
@@ -39,7 +39,7 @@ class ExampleTest extends TestCase
     {
         $this->visit('/')
             ->type(str_random(300), 'name')
-            ->press('Add Task')
+            ->press('Agregar Tarea')
             ->see('Whoops!');
     }
 }
