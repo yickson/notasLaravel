@@ -21,7 +21,7 @@ pipelines:
 definitions:
   services:
     mysql:
-      image: mysql:8
+      image: mysql:5.7
       environment:
         MYSQL_DATABASE: 'homestead'
         MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
