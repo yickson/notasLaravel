@@ -1,24 +1,25 @@
 image: php:7.2-fpm
 
 pipelines:
-  default:
-    - step:
-        script:
-          - apt-get update && apt-get install -y git curl libmcrypt-dev default-mysql-client wget
-          - yes | pecl install mcrypt-1.0.1
-          - docker-php-ext-install pdo_mysql
-          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-          - composer install
-          - php -r "copy('.env.pipelines', '.env');"
-          - php artisan key:generate
-          - php artisan config:cache
-          - php artisan migrate --force
-          - php artisan serve &
-          - sleep 5
-          - ./vendor/bin/phpunit
-          - wget -q --spider https://forge.laravel.com/servers/321969/sites/904704/deploy/http?token=pH8l1fp88FApKsuSLRFlP1uVfyNJOR1DQdmrm4A1
-        services:
-          - mysql
+  branch:
+    '{master}':
+      - step:
+          script:
+            - apt-get update && apt-get install -y git curl libmcrypt-dev default-mysql-client wget
+            - yes | pecl install mcrypt-1.0.1
+            - docker-php-ext-install pdo_mysql
+            - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+            - composer install
+            - php -r "copy('.env.pipelines', '.env');"
+            - php artisan key:generate
+            - php artisan config:cache
+            - php artisan migrate --force
+            - php artisan serve &
+            - sleep 5
+            - ./vendor/bin/phpunit
+            - wget -q --spider https://forge.laravel.com/servers/321969/sites/904704/deploy/http?token=pH8l1fp88FApKsuSLRFlP1uVfyNJOR1DQdmrm4A1
+          services:
+            - mysql
 
 definitions:
   services:

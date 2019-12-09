@@ -13,3 +13,5 @@
     php artisan serve
 
 [Complete Tutorial](https://laravel.com/docs/5.2/quickstart)
+
+Sitio de ejemplo para el manejo de Bitbucket Pipeline
