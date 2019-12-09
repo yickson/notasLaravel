@@ -29,3 +29,10 @@ definitions:
         MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
         MYSQL_USER: 'homestead'
         MYSQL_PASSWORD: 'secret'
+
+branches:
+  master:
+    - step:
+        name: Clone
+        script:
+          - echo "Es la rama master"
