@@ -14,6 +14,10 @@
 use App\Task;
 use Illuminate\Http\Request;
 
+Route::get('/debug-sentry', function () {
+    throw new Exception('My first Sentry error!');
+});
+
 Route::group(['middleware' => ['web']], function () {
     /**
      * Show Task Dashboard
